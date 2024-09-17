@@ -24,7 +24,7 @@ const Navbar1 = () => {
           );
         }
       }
-
+    //console.log(auth.currentUser)
   return (
     <Navbar bg="dark" variant="dark" expand="lg" style={{ height: '60px', padding: '20px' }}>
       <Navbar.Brand href="#home">TodoApp</Navbar.Brand>
@@ -40,14 +40,14 @@ const Navbar1 = () => {
         </Form>
         <Nav className="ms-auto">
           
-          <NavDropdown title="Profile" id="basic-nav-dropdown"style={{ marginLeft: '-40px' }}>
+          {auth.currentUser && <NavDropdown title="Profile" id="basic-nav-dropdown"style={{ marginLeft: '-40px' }}>
             <NavDropdown.Item href="#action/3.1">My Account</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="/login" onclick={handleSignout}>
+            <NavDropdown.Item href="/login" onClick={handleSignout}>
               Logout
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown>}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
