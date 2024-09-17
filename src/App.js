@@ -1,38 +1,41 @@
-
-import './App.css';
+import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Login from './Components/login';
-import Profile from './Components/profile';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+import Login from "./Components/login";
+import Profile from "./Components/profile";
+import Navbar1 from "./Components/navbar";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { auth } from './Components/firebase';
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { auth } from "./Components/firebase";
 
-import Register from './Components/register';
+import Register from "./Components/register";
 
 function App() {
-  const[user,setuser] = useState()
+  const [user, setuser] = useState();
 
-  useEffect(()=>{
-    auth.onAuthStateChanged(async(user)=>{
-      setuser(user)
-    })
-    
-  },[])
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      setuser(user);
+    });
+  }, []);
+
+  //<div className="auth-inner">
   return (
+    <div>
+      <Navbar1/>
     <Router>
+    
       <div className="App">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-          <Routes>
+        
+            <Routes>
               <Route
                 path="/"
                 element={user ? <Navigate to="/profile" /> : <Login />}
@@ -41,13 +44,12 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
-            <ToastContainer/>
-            
+            <ToastContainer />
           </div>
-        </div>
-      </div>
+       
     </Router>
-   
+
+    </div>
   );
 }
 

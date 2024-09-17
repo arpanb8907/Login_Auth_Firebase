@@ -29,6 +29,8 @@ function Login() {
   }
 
   return (
+    <div className="auth-wrapper">
+    <div className="auth-inner">
     <form onSubmit={handlesubmit}>
       <h3>Login</h3>
 
@@ -64,6 +66,9 @@ function Login() {
       </p>
       
     </form>
+    </div>
+    </div>
+    
   );
 }
 
