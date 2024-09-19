@@ -41,7 +41,7 @@ const Navbar1 = () => {
         <Nav className="ms-auto">
           
           {auth.currentUser && <NavDropdown title="Profile" id="basic-nav-dropdown"style={{ marginLeft: '-40px' }}>
-            <NavDropdown.Item href="#action/3.1">My Account</NavDropdown.Item>
+            <NavDropdown.Item href="/account">My Account</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/login" onClick={handleSignout}>
